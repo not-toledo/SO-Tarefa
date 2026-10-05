@@ -1,45 +1,140 @@
-# 🐾 O que tem no MeowNitor Perfeito?
+# 🖥️ Raio-X do Computador
 
-O **MeowNitor Perfeito** é um painel de monitoramento de servidor (*dashboard*) interativo em tempo real que transforma métricas técnicas do sistema em uma interface temática e divertida sobre **gatos**.
+> Um painel web que mostra, em tempo real e em linguagem simples, tudo o que há dentro da máquina que roda o servidor: sistema operacional, processador, memória, discos, GPU, rede, temperaturas, consumo de energia e processos em execução.
 
-Acesse em: https://sistemas-operacionais-pfph.onrender.com/#s-gauges
----
+## 🔗 Acesse o site
 
-## 📊 1. Painel de Monitoramento (Métricas do Servidor)
+**👉 [https://so-tarefa.onrender.com/](https://so-tarefa.onrender.com/)**
 
-O sistema lê dados da máquina em tempo real e os traduz através de metáforas felinas:
-
-| Métrica Técnica | Metáfora Felina | Descrição |
-| :--- | :--- | :--- |
-| **Memória RAM** | **Pote de Ração** | Mostra o consumo atual de RAM em porcentagem, MB usados e total disponível. |
-| **Uso de CPU** | **Nível de Agitação** | Exibe a carga atual do processador em tempo real e a média de carga (1 minuto). |
-| **Armazenamento** | **Caixa de Areia** | Exibe o espaço usado e livre do disco principal em GB. |
-| **Núcleos da CPU** | **Patas em Ação** | Barras de progresso separadas para cada núcleo (*core*) do processador. |
-| **Carga de Trabalho** | **Rotina do Gato** | Carga média de uso do sistema nos últimos 1, 5 e 15 minutos, junto com a hora local. |
-| **Processador** | **Cérebro e Músculos** | Exibe o modelo do processador, quantidade de núcleos e frequência em MHz. |
-| **Rede & Sistema** | **Território & Carteirinha** | Exibe o IP local, interfaces de rede, nome do host, sistema operacional, versão do Node.js e PID do processo. |
+> ⏳ O servidor está hospedado no [Render](https://render.com). Dependendo do plano, ele "dorme" após um período sem acessos, então o primeiro carregamento pode levar alguns segundos.
 
 ---
 
-## 🎮 2. Recursos Interativos e Brincadeiras
+## 📌 Sobre o projeto
 
-A interface conta com diversos elementos dinâmicos para o usuário interagir:
+Este projeto foi desenvolvido na disciplina de **Sistemas Operacionais** (ADS, FATEC Itapetininga). A ideia é usar o Node.js e o Express para ler dados reais do sistema operacional e apresentá-los de um jeito que **qualquer pessoa consiga entender**, não só quem é da área.
 
-* **🗣️ Miau-tradutor (Humano para Felino):** Um campo de texto interativo que converte qualquer palavra digitada em sons e miados de gato (*"Miau"*, *"Mrrau"*, *"Purr"*).
-* **💡 Gerador de Fatos Felinos:** Exibe curiosidades reais sobre gatos a cada clique.
-* **🐟 Dar Petisco:** Dispara uma animação de chuva de peixes, leites e petiscos flutuando na tela.
-* **🔊 Pedir Miau / 💤 Ronronar:** Botões interativos com efeitos visuais e sonoros do gato.
-* **📦 Entrar na Caixa:** Alterna a visualização para o modo "caixa de papelão".
-* **🧶 Cantinho do Novelo (Aba Secundária):** Um mini-jogo simples onde o usuário clica no novelo para dar "patadas" e acumular um contador.
-* **🐾 Efeito de Pegadas:** Ao clicar em qualquer área vazia da página, uma pegada de gato surge brevemente sob o cursor.
+Cada seção da página explica o que aquela peça faz. A RAM, por exemplo, é descrita como a "mesa de trabalho" do computador.
+
+> ⚠️ **Importante:** o painel mostra os dados da **máquina onde o servidor está rodando**. No site publicado, isso significa o servidor do Render, e não o computador de quem acessa. Para ver o seu próprio computador, rode o projeto localmente (veja abaixo).
 
 ---
 
-## 🎨 3. Estilo Visual e Design
+## ✨ O que o site mostra
 
-* **Estilo Neo-Brutalista:** Cores marcantes e de alto contraste (rosa, amarelo, ciano, roxo e preto) com bordas espessas.
-* **Tipografia:** Uso das fontes *Bagel Fat One* e *Archivo* do Google Fonts.
-* **Efeitos Dinâmicos:** 
-  * Faixa deslizante (*marquee*) com texto em loop infinito.
-  * Gráficos em anel (*ring gauges*) SVG dinâmicos para exibição de métricas.
-  * Layout responsivo adaptado para dispositivos móveis e desktops.
+### Resumo e diagnóstico
+Cartões com o estado geral da máquina (processador, memória, armazenamento, temperatura, bateria e processos). Cada um traz um selo **Tudo certo**, **Atenção** ou **Crítico** e uma frase curta explicando a situação.
+
+### Sistema e hardware
+- Sistema operacional, nome do computador, usuário, tempo ligado, arquitetura, kernel, fuso horário e idioma
+- Fabricante, modelo, placa-mãe e BIOS
+- Processador com uso total e uso por núcleo
+- Memória RAM
+- Discos com espaço total, usado e livre
+- Placa de vídeo, bateria, rede e portas abertas
+
+### Detalhes avançados da máquina
+| Área | Informações |
+|---|---|
+| **Processador** | Soquetes, núcleos físicos, threads, threads por núcleo, frequência atual, máxima e mínima, caches L1, L2 e L3, virtualização |
+| **GPU** | Uso, VRAM usada e total, temperatura, consumo em watts, clocks, ventoinha, driver |
+| **Memória** | RAM disponível, cache, buffers, memória compartilhada, swap e pentes (slot, tamanho, tipo, velocidade) |
+| **Energia** | Consumo da CPU, da GPU e da bateria |
+| **Temperaturas** | CPU, GPU e todos os sensores encontrados |
+| **Extras** | Ventoinhas (RPM) e tráfego de rede em tempo real |
+
+> Alguns itens dependem do sistema operacional, do hardware e das permissões do servidor. Quando não há como ler um dado, ele é omitido ou aparece como "indisponível". Em servidores na nuvem, por exemplo, é normal não haver GPU nem sensores de temperatura.
+
+### Processos em execução
+Tabela com **PID, programa, usuário, uso de CPU, memória, threads, estado e tempo ativo**, com busca por nome, usuário ou PID e ordenação por memória, CPU ou PID. Os estados aparecem traduzidos, como "Dormindo (normal)" e "Travado (zumbi)".
+
+---
+
+## 🎨 Visual
+
+- Tema **escuro e moderno**, inspirado em landing pages de tecnologia
+- Topo com anel de uso da CPU em tempo real
+- Menu fixo com efeito de vidro e rolagem suave
+- Cartões com degradê, bordas sutis e barras de progresso coloridas
+- Atualização automática a cada **3 segundos**, sem recarregar a página
+
+---
+
+## 🛠️ Tecnologias
+
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- Módulos nativos `os`, `fs` e `child_process`
+- HTML, CSS e JavaScript puros no front-end (sem frameworks)
+
+---
+
+## 🚀 Como rodar localmente
+
+```bash
+# 1. Instale as dependências
+npm init -y
+npm install express
+
+# 2. Inicie o servidor
+node server.js
+
+# 3. Abra no navegador
+# http://localhost:3000
+```
+
+A porta pode ser alterada pela variável de ambiente `PORT`:
+
+```bash
+PORT=8080 node server.js
+```
+
+---
+
+## 🔌 API
+
+Os dados completos também estão disponíveis em JSON:
+
+| Rota | Descrição |
+|---|---|
+| `GET /` | Painel visual |
+| `GET /api/all` | Todos os dados coletados: sistema, hardware, CPU, memória, GPU, discos, rede, portas, bateria, temperaturas e processos |
+
+Exemplo: [https://so-tarefa.onrender.com/api/all](https://so-tarefa.onrender.com/api/all)
+
+---
+
+## ☁️ Publicação no Render
+
+O projeto está publicado como um **Web Service** no Render, com estas configurações:
+
+| Campo | Valor |
+|---|---|
+| Runtime | Node |
+| Build Command | `npm install` |
+| Start Command | `node server.js` |
+
+O Render define a variável `PORT` automaticamente, e o servidor já a utiliza.
+
+---
+
+## 🔒 Segurança
+
+O painel expõe informações da máquina, como IPs, endereços MAC, usuário e portas abertas. Em um servidor público, vale colocar autenticação ou limitar quais dados são exibidos.
+
+---
+
+## 📁 Estrutura
+
+```
+.
+├── server.js     # Servidor Express, coletores de dados e página do painel
+├── package.json
+└── README.md
+```
+
+---
+
+## 👤 Autor
+
+Desenvolvido por **Gabriel**, aluno de Análise e Desenvolvimento de Sistemas na **FATEC Itapetininga**.
