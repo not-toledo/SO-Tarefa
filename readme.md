@@ -131,10 +131,3 @@ O painel expõe informações da máquina, como IPs, endereços MAC, usuário e 
 ├── server.js     # Servidor Express, coletores de dados e página do painel
 ├── package.json
 └── README.md
-```
-
----
-
-## 👤 Autor
-
-Desenvolvido por **Gabriel**, aluno de Análise e Desenvolvimento de Sistemas na **FATEC Itapetininga**.
